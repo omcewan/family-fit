@@ -1,7 +1,3 @@
-const inquirer = require('inquirer');
-
-
-
 // Chart library from My Chart
 const chart =require('chart.js');
 const myChart = new chart.Chart(ctx, {});
