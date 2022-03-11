@@ -53,7 +53,7 @@ Member.init(
       },
 
       async beforeUpdate(updatedMemberData) {
-        updatedMemberData.password = await bycrpt.hash(
+        updatedMemberData.password = await bcrypt.hash(
           updatedMemberData.password,
           10
         );
