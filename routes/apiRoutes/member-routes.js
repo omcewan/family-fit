@@ -73,10 +73,24 @@ router.put('/:id', (req, res) => {
     });
 });
 
-// TODO: create a login route
 // check member login credentials
 router.use('/login', (req, res) => {
-  Member.findOne();
+  // expects {email: 'lernantino@gmail.com', password: 'password1234'}
+  Member.findOne({ where: { email: req.body.email } }).then((memberData) => {
+    if (!memberData) {
+      res.status(400).json({ message: 'No Member with that email exists!' });
+      return;
+    }
+    // Verify user
+    const validPassword = memberData.checkPassword(req.body.password);
+
+    if (!validPassword) {
+      res.status(400).json({ message: 'Incorrect password!' });
+      return;
+    }
+
+    res.json({ member: memberData, message: 'You are now logged in!' });
+  });
 });
 
 // delte a membmer
