@@ -73,6 +73,7 @@ const memeberData = [
   },
 ];
 
+// TODO: apply bcrypt to passwordds before seeding.
 const seedMembers = () => Member.bulkCreate(memeberData);
 
 module.exports = seedMembers

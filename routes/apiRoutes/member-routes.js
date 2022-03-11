@@ -3,7 +3,7 @@ const { Member, Family } = require('../../models');
 
 // get all members
 router.get('/', (req, res) => {
-  Member.findAll()
+  Member.findAll({ attributes: { exclude: ['password'] } })
     .then((memberData) => {
       res.json(memberData);
     })
@@ -15,7 +15,10 @@ router.get('/', (req, res) => {
 
 // get a single member
 router.get('/:id', (req, res) => {
-  Member.findOne({ where: { id: req.params.id } })
+  Member.findOne({
+    attributes: { exclude: ['password'] },
+    where: { id: req.params.id },
+  })
     .then((memberData) => {
       if (!memberData) {
         res.status(400).json({ message: 'No Member with that ID exists!' });
