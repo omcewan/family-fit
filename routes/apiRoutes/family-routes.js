@@ -21,7 +21,24 @@ router.get('/:id', (req, res) => {
     include: { model: Member },
     where: { id: req.params.id },
   })
-    .then((familyData) => res.json(familyData))
+    .then((familyData) => {
+      if (!familyData) {
+        res.status(400).json({ message: 'No Family with that ID exists!' });
+        return;
+      }
+      res.json(familyData);
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json(err);
+    });
+});
+
+router.post('/', (req, res) => {
+  Family.create({ family_name: req.body.family_name })
+    .then((familyData) => {
+      res.json(familyData);
+    })
     .catch((err) => {
       console.log(err);
       res.status(500).json(err);
