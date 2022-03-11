@@ -29,4 +29,22 @@ router.get('/:id', (req, res) => {
     });
 });
 
+// create a new member
+router.post('/', (req, res) => {
+  Member.create({
+    first_name: req.body.first_name,
+    last_name: req.body.last_name,
+    email: req.body.email,
+    password: req.body.password,
+    family_id: req.body.family_id,
+  })
+    .then((memberData) => {
+      res.json(memberData);
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json(err);
+    });
+});
+
 module.exports = router;
