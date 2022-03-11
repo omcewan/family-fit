@@ -54,12 +54,9 @@ router.put('/:id', (req, res) => {
   )
     .then((familyData) => {
       if (!familyData[0]) {
-        res
-          .status(400)
-          .json({
-            message:
-              'No Family with with that ID exists / Update already applied!',
-          });
+        res.status(400).json({
+          message: 'No Family with that ID exists / Update already applied!',
+        });
         return;
       }
       res.json(familyData);
@@ -70,4 +67,19 @@ router.put('/:id', (req, res) => {
     });
 });
 
+// delete a family
+router.delete('/:id', (req, res) => {
+  Family.destroy({ where: { id: req.params.id } })
+    .then((familyData) => {
+      if (!familyData) {
+        res.status(400).json({ message: 'No Family with that ID exists!' });
+        return;
+      }
+      res.json(familyData);
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json(err);
+    });
+});
 module.exports = router;
