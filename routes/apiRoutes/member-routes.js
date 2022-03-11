@@ -1,4 +1,5 @@
 const router = require('express').Router();
+const { route } = require('express/lib/application');
 const { Member, Family } = require('../../models');
 
 // get all members
@@ -48,6 +49,39 @@ router.post('/', (req, res) => {
       console.log(err);
       res.status(500).json(err);
     });
+});
+
+// update a member
+router.put('/:id', (req, res) => {
+  Member.update(req.body, {
+    individualHooks: true,
+    where: { id: req.params.id },
+  })
+    .then((memberData) => {
+      if (!memberData[0]) {
+        req.status(400).json({
+          message: 'No Member with that ID exists!',
+        });
+        return;
+      }
+      res.json(memberData);
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json(err);
+    });
+});
+
+// TODO: create a login route
+// check member login credentials
+router.use('/login', (req, res) => {
+  Member.findOne();
+});
+
+// TODO: complete route
+// delte a membmer
+router.delete('/:id', (req, res) => {
+  Member.destroy();
 });
 
 module.exports = router;
