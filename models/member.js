@@ -4,6 +4,7 @@ const bcrypt = require('bcrypt');
 
 class Member extends Model {}
 
+// define colums and configuration
 Member.init(
   {
     id: {
@@ -46,7 +47,7 @@ Member.init(
   },
 
   {
-    hook: {
+    hooks: {
       async beforeCreate(newMemberData) {
         newMemberData.password = await bcrypt.hash(newMemberData.password, 10);
         return newMemberData;
