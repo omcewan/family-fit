@@ -15,17 +15,10 @@ Workout.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
-    member_id: {
-      type: DataTypes.INTEGER,
-      references: {
-        model: 'member',
-        key: 'id',
-      },
-    },
   },
   {
     sequelize,
-    timestamps: true,
+    timestamps: false,
     freezeTableName: true,
     underscored: true,
     modelName: 'workout',

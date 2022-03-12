@@ -2,8 +2,13 @@ const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 const bcrypt = require('bcrypt');
 
-class Member extends Model {}
+class Member extends Model {
+  checkPassword(loginPwd) {
+    return bcrypt.compareSync(loginPwd, this.password);
+  }
+}
 
+// define colums and configuration
 Member.init(
   {
     id: {
@@ -46,14 +51,14 @@ Member.init(
   },
 
   {
-    hook: {
+    hooks: {
       async beforeCreate(newMemberData) {
         newMemberData.password = await bcrypt.hash(newMemberData.password, 10);
         return newMemberData;
       },
 
       async beforeUpdate(updatedMemberData) {
-        updatedMemberData.password = await bycrpt.hash(
+        updatedMemberData.password = await bcrypt.hash(
           updatedMemberData.password,
           10
         );
