@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Family, Member, LoggedWorkout } = require('../../models');
+const { Family, Member, LoggedWorkout, Workout } = require('../../models');
 
 // get all families and their memebers
 router.get('/', (req, res) => {
@@ -8,7 +8,7 @@ router.get('/', (req, res) => {
       {
         model: Member,
         attributes: { exclude: ['password'] },
-        include: { model: LoggedWorkout },
+        include: { model: LoggedWorkout, include: { model: Workout } },
       },
     ],
   })
@@ -27,7 +27,7 @@ router.get('/:id', (req, res) => {
     include: {
       model: Member,
       attributes: { exclude: ['password'] },
-      include: { model: LoggedWorkout },
+      include: { model: LoggedWorkout, include: { model: Workout } },
     },
     where: { id: req.params.id },
   })
