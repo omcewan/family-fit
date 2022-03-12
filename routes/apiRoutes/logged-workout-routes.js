@@ -3,7 +3,7 @@ const { LoggedWorkout, Workout, Member, Family} = require('../../models');
 
 // get all logged workouts
 router.get('/', (req, res) => {
-  LoggedWorkout.findAll({
+  LoggedWorkout.findAll({limit: 7},{
     include: [
       { model: Workout },
       { model: Member, attributes: { exclude: 'password' }, include: {model: Family}},

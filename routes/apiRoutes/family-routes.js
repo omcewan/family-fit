@@ -8,7 +8,7 @@ router.get('/', (req, res) => {
       {
         model: Member,
         attributes: { exclude: ['password'] },
-        include: { model: LoggedWorkout, include: { model: Workout } },
+        include: { model: LoggedWorkout, separate: true , limit: 7, include: { model: Workout } },
       },
     ],
   })
@@ -27,7 +27,7 @@ router.get('/:id', (req, res) => {
     include: {
       model: Member,
       attributes: { exclude: ['password'] },
-      include: { model: LoggedWorkout, include: { model: Workout } },
+      include: { model: LoggedWorkout, separate: true , limit: 7, include: { model: Workout } },
     },
     where: { id: req.params.id },
   })

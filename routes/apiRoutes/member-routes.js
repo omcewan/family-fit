@@ -5,7 +5,7 @@ const { Member, Workout, LoggedWorkout } = require('../../models');
 router.get('/', (req, res) => {
   Member.findAll({
     attributes: { exclude: ['password'] },
-    include: { model: LoggedWorkout, include: {model: Workout}},
+    include: { model: LoggedWorkout, separate: true , limit: 7, include: {model: Workout}},
   })
     .then((memberData) => {
       res.json(memberData);
@@ -20,7 +20,7 @@ router.get('/', (req, res) => {
 router.get('/:id', (req, res) => {
   Member.findOne({
     attributes: { exclude: ['password'] },
-    include: { model: LoggedWorkout, include: {model: Workout}},
+    include: { model: LoggedWorkout, separate: true , limit: 7, include: {model: Workout}},
     where: { id: req.params.id },
   })
     .then((memberData) => {
