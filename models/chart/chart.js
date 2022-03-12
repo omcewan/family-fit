@@ -24,3 +24,4 @@ const mixedChart = new Chart(ctx, {
 
   }
 })
+
