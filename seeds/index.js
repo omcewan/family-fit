@@ -1,6 +1,7 @@
 const seedFamilies = require('./family-seeds');
 const seedMembers = require('./member-seeds');
 const seedWorkout = require('./workout-seeds');
+const seedLogged = require('./logged-workout-seeds');
 
 const sequelize = require('../config/connection');
 
@@ -13,6 +14,8 @@ const seedAll = async () => {
   console.log('\nMembers Seeded\n');
   await seedWorkout();
   console.log('\nWorkout Seeded\n');
+  await seedLogged();
+  console.log('\nLogged Workouts\n');
   process.exit(0);
 };
 
