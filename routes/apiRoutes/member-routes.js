@@ -1,11 +1,14 @@
 const router = require('express').Router();
 const { route } = require('express/lib/application');
 const { json } = require('express/lib/response');
-const { Member, Family } = require('../../models');
+const { Member, Family, LoggedWorkout } = require('../../models');
 
 // get all members
 router.get('/', (req, res) => {
-  Member.findAll({ attributes: { exclude: ['password'] } })
+  Member.findAll({
+    attributes: { exclude: ['password'] },
+    include: { model: LoggedWorkout },
+  })
     .then((memberData) => {
       res.json(memberData);
     })

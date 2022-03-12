@@ -12,14 +12,23 @@ Member.belongsTo(Family, {
   foreignKey: 'family_id',
 });
 
-Member.belongsToMany(Workout, {
-  through: LoggedWorkout,
+Member.hasMany(LoggedWorkout, {
   foreignKey: 'member_id',
 });
 
-Workout.belongsToMany(Member, {
-  through: LoggedWorkout,
-  foreignKey: 'workout_id',
+LoggedWorkout.belongsTo(Member, {
+  foreignKey: 'member_id',
 });
+
+
+// Member.hasMany(Workout, {
+//   through: LoggedWorkout,
+//   foreignKey: 'member_id',
+// });
+
+// Workout.belongsToMany(Member, {
+//   through: LoggedWorkout,
+//   foreignKey: 'workout_id',
+// });
 
 module.exports = { Family, Member, LoggedWorkout, Workout };
