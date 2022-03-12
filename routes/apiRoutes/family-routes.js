@@ -2,7 +2,6 @@ const router = require('express').Router();
 const { Family, Member, LoggedWorkout } = require('../../models');
 
 // get all families and their memebers
-// TODO: fix route so that member passwords don't show up
 router.get('/', (req, res) => {
   Family.findAll({
     include: [
@@ -25,7 +24,11 @@ router.get('/', (req, res) => {
 // get a single family and its members
 router.get('/:id', (req, res) => {
   Family.findOne({
-    include: { model: Member },
+    include: {
+      model: Member,
+      attributes: { exclude: ['password'] },
+      include: { model: LoggedWorkout },
+    },
     where: { id: req.params.id },
   })
     .then((familyData) => {

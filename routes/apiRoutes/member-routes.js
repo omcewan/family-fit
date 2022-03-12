@@ -20,6 +20,7 @@ router.get('/', (req, res) => {
 router.get('/:id', (req, res) => {
   Member.findOne({
     attributes: { exclude: ['password'] },
+    include: { model: LoggedWorkout},
     where: { id: req.params.id },
   })
     .then((memberData) => {
