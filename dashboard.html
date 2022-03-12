@@ -1,0 +1,87 @@
+<!-- 
+PSEUDOCODE:
+
+Dashboard page has three primary elements:
+1. Navigation sidebar on left
+2. Calendar
+3. Chart(s) 
+
+Sidebar has a number of options (four in mockup).
+- Each option is its own element.
+
+Calendar contains a heading and a jQuery script.
+
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!--Link Bootstrap CSS-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="./css/styles.css">
+    <!--Title-->
+    <title>Dashboard</title>
+    
+</head>
+<body>
+    <header>
+        <h1 class="page-title">Dashboard</h1>
+    </header>
+    
+<div id="wrapper">
+
+    <!-- Sidebar -->
+    <div id="sidebar-wrapper">
+        <ul class="sidebar-nav">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Calendar</a></li>
+            <li><a href="#">Chart 1</a></li>
+            <li><a href="#">Chart 2</a></li>
+        </ul>
+    </div>
+    <!-- Page Content -->
+    <div id="page-content-wrapper">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12">
+                    <a href="#" class="btn btn-success" id="menu-toggle">Toggle Menu</a>
+                    <h1>Sidebar layouts are Cool</h1>
+                    <p>I love food. I love food. I love food.
+                         I love food. I love food. I love food. 
+                         I love food. I love food. I love food. 
+                         I love food. I love food. I love food.
+                         I love food. I love food. I love food.
+                         I love food. I love food. I love food.
+                         I love food. I love food. I love food.</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+    <!--Sidebar goes here -->
+
+    <!-- Calendar goes here -->
+    <h1>Calendar</h1>
+
+    <!--Charts go here-->
+    <h1>Chart 1</h1>
+    <h1>Chart 2</h1>
+
+    <!-- Menu toggle script -->
+    <script>
+        $("menu-toggle").click(function(clickLink) {
+            clickLink.preventDefault();
+            $("#wrapper").toggleClass("menuDisplayed");
+        });
+    </script>
+    <!--jQuery first, then Calendar, then add Bootstrap JS-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="js/evo-calendar.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+</body>
+</html>
