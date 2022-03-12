@@ -2,8 +2,19 @@ const { Workout } = require('../models');
 
 const workoutData = [
   {
-    workout_name: 'Cardio',
-    member_id: 1
+    workout_name: 'Tredmill',
+  },
+  {
+    workout_name: 'Weight Lifting',
+  },
+  {
+    workout_name: 'Eliptical',
+  },
+  {
+    workout_name: 'Abs',
+  },
+  {
+    workout_name: 'Cycling',
   },
 ]
 
