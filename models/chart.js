@@ -9,16 +9,18 @@ import chart from 'chart.js/auto';
 import Chart from 'chart.js/auto';
 import { getRelativePosition } from 'chart.js/helpers';
 
-const chart = new Chart(ctx, {
-  type: 'line',
-  data: data,
-  options: {
-    onClick: (e) => {
-      const canvasPosition = getRelativePosition(e, chart);
+const mixedChart = new Chart(ctx, {
+  data: {
+    datasets: [{
+      type: 'radar',
+      label: "${''}'s Progress Chart",
+      data: [],
+    
+    }, {
+      type: 'pie',
+      label: 'Total Family Work-out Chart',
+      data: []
+    }]
 
-      // Substitute the appropriate scale IDs
-      const dataX = chart.scales.x.getValueForPixel(canvasPosition.x);
-      const dataY = chart.scales.y.getValueForPixel(canvasPosition.y);
-    }
   }
-});
+})
