@@ -1,6 +1,4 @@
 const router = require('express').Router();
-const { route } = require('express/lib/application');
-const { json } = require('express/lib/response');
 const { Member, Family, LoggedWorkout } = require('../../models');
 
 // get all members

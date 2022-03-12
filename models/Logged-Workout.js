@@ -22,6 +22,12 @@ LoggedWorkout.init(
         key: 'id',
       },
     },
+    minutes: {
+      type: DataTypes.FLOAT,
+    },
+    hours: {
+      type: DataTypes.INTEGER,
+    },
   },
   {
     sequelize,
