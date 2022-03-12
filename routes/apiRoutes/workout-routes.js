@@ -1,14 +1,9 @@
 const router = require('express').Router();
-const { LoggedWorkout, Workout, Member, Family} = require('../../models');
+const { Workout } = require('../../models');
 
-// get all logged workouts
+// get all workouts
 router.get('/', (req, res) => {
-  LoggedWorkout.findAll({
-    include: [
-      { model: Workout },
-      { model: Member, attributes: { exclude: 'password' }, include: {model: Family}},
-    ],
-  })
+  Workout.findAll()
     .then((workoutData) => {
       res.json(workoutData);
     })
@@ -18,13 +13,10 @@ router.get('/', (req, res) => {
     });
 });
 
-// post a new workout
+// create a new workout
 router.post('/', (req, res) => {
-  LoggedWorkout.create({
-    workout_id: req.body.workout_id,
-    member_id: req.body.member_id,
-    hours: req.body.hours,
-    minutes: req.body.minutes,
+  Workout.create({
+    workout_name: req.body.workout_name,
   })
     .then((workoutData) => {
       res.json(workoutData);
@@ -35,9 +27,8 @@ router.post('/', (req, res) => {
     });
 });
 
-// delete a workout
 router.delete('/:id', (req, res) => {
-  LoggedWorkout.destroy({ where: { id: req.params.id } })
+  Workout.destroy({ where: { id: req.params.id } })
     .then((workoutData) => {
       if (!workoutData) {
         res.status(400).json({ message: 'No Workout with that ID exists!' });
