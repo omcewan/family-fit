@@ -5,7 +5,12 @@ const { Member, Workout, LoggedWorkout } = require('../../models');
 router.get('/', (req, res) => {
   Member.findAll({
     attributes: { exclude: ['password'] },
-    include: { model: LoggedWorkout, separate: true , limit: 7, include: {model: Workout}},
+    include: {
+      model: LoggedWorkout,
+      separate: true,
+      limit: 7,
+      include: { model: Workout },
+    },
   })
     .then((memberData) => {
       res.json(memberData);
@@ -20,7 +25,12 @@ router.get('/', (req, res) => {
 router.get('/:id', (req, res) => {
   Member.findOne({
     attributes: { exclude: ['password'] },
-    include: { model: LoggedWorkout, separate: true , limit: 7, include: {model: Workout}},
+    include: {
+      model: LoggedWorkout,
+      separate: true,
+      limit: 7,
+      include: { model: Workout },
+    },
     where: { id: req.params.id },
   })
     .then((memberData) => {
@@ -46,7 +56,12 @@ router.post('/', (req, res) => {
     family_id: req.body.family_id,
   })
     .then((memberData) => {
-      res.json(memberData);
+      req.session.save(() => {
+        req.session.member_id = memberData.id;
+        req.session.email = memberData.email;
+        req.session.loggedIn = true;
+        res.json(memberData);
+      });
     })
     .catch((err) => {
       console.log(err);
@@ -90,8 +105,12 @@ router.use('/login', (req, res) => {
       res.status(400).json({ message: 'Incorrect password!' });
       return;
     }
-
-    res.json({ member: memberData, message: 'You are now logged in!' });
+    req.session.save(() => {
+      req.session.member_id = memberData.id;
+      req.session.email = memberData.email;
+      req.session.loggedIn = true;
+      res.json({ member: memberData, message: 'You are now logged in!' });
+    });
   });
 });
 

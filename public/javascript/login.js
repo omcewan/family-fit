@@ -53,3 +53,4 @@ async function loginFormHandler(event) {
 }
 
 document.querySelector('id').addEventListener('submit', signupFormHandler);
+document.querySelector('id').addEventListener('submit', loginFormHandler);
