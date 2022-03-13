@@ -114,6 +114,16 @@ router.use('/login', (req, res) => {
   });
 });
 
+router.use('/logout', (req, res) => {
+  if (req.session.loggedIn) {
+    req.session.destroy(() => {
+      res.status(204).end();
+    });
+  } else {
+    res.status(404).end();
+  }
+})
+
 // delte a membmer
 router.delete('/:id', (req, res) => {
   Member.destroy({ where: { id: req.params.id } })

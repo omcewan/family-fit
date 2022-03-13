@@ -1,5 +1,3 @@
-const { post } = require('../../controllers/home-routes');
-
 async function signupFormHandler(event) {
   event.preventDefault();
 
