@@ -9,19 +9,32 @@ header img {
     max-height: 100%;
 }
 
+h1 {
+  margin-bottom: auto;
+}
 
 /* Style the sidebar - fixed full height */
 .sidebar {
   height: 100%;
   width: 160px;
   position: fixed;
-  z-index: 0;
+  z-index: 1;
   top: 0;
   left: 0;
   background-color: #f8f9fa;
   overflow-x: hidden;
   padding-top: 16px;
 }
+
+.calendar {
+  margin: auto;
+}
+
+.charts {
+  display: flex;
+  justify-content: space-around;
+}
+
 /*
 Style sidebar links
 
