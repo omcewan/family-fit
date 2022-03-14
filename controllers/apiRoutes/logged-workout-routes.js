@@ -1,12 +1,17 @@
 const router = require('express').Router();
-const { LoggedWorkout, Workout, Member, Family} = require('../../models');
+const { LoggedWorkout, Workout, Member, Family } = require('../../models');
 
 // get all logged workouts
 router.get('/', (req, res) => {
   LoggedWorkout.findAll({
+    limit: 20,
     include: [
       { model: Workout },
-      { model: Member, attributes: { exclude: 'password' }, include: {model: Family}},
+      {
+        model: Member,
+        attributes: { exclude: 'password' },
+        include: { model: Family },
+      },
     ],
   })
     .then((workoutData) => {
