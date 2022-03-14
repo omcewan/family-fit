@@ -4,7 +4,7 @@ const { Member, Workout, LoggedWorkout } = require('../../models');
 // get all members
 router.get('/', (req, res) => {
   Member.findAll({
-    attributes: { exclude: ['password'] },
+    attributes: { exclude: ['password', 'family_id'] },
     include: {
       model: LoggedWorkout,
       separate: true,
