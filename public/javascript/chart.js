@@ -1,5 +1,3 @@
-// Chart library from My Chart
-// const chart = require('chart.js');
 const ctx = document.getElementById('myChart');
 const labels = [
   'Monday',
@@ -28,4 +26,13 @@ const config = {
   options: {},
 };
 
-const myChart = new Chart(ctx, config);
+// const myChart = new Chart(ctx, config);
+
+async function chartData() {
+  const data = fetch('/api/members');
+  if(data.ok) {
+    console.log(data)
+  }
+}
+
+chartData();
