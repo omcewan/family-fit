@@ -12,7 +12,7 @@ let workoutHours;
 
 chartData().then((resData) => {
   let workouts = resData['logged_workouts'];
-  workoutHours = workouts.map((element) => element.hours);
+  workoutHours = workouts.map((element) => element.minutes);
   console.log(workoutHours);
   const labels = [
     'Monday',
