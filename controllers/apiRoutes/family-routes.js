@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const { Family, Member, LoggedWorkout, Workout } = require('../../models');
+const sequelize = require('../../config/connection')
 
 // get all families and their memebers
 router.get('/', (req, res) => {
@@ -9,6 +10,7 @@ router.get('/', (req, res) => {
         model: Member,
         attributes: { exclude: ['password', 'family_id'] },
         include: {
+          order: sequelize.literal('createdAt DESC'),
           model: LoggedWorkout,
           separate: true,
           limit: 7,
@@ -33,6 +35,7 @@ router.get('/:id', (req, res) => {
       model: Member,
       attributes: { exclude: ['password', 'family_id'] },
       include: {
+        order: sequelize.literal('createdAt DESC'),
         model: LoggedWorkout,
         separate: true,
         limit: 7,
