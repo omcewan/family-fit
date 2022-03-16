@@ -1,0 +1,247 @@
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Family Fit</title>
+
+    <!-- Main Stylesheet -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+    <!-- Bootstrap Icon -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=League+Gothic&display=swap" rel="stylesheet">
+
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="stylesheet/main.css">
+
+</head>
+<body>
+   <!-- Header Start -->
+    <header class="header p-3 position-absolute start-0 top-0 end-0">
+        <div class="d-flex justify-content-between align-items-center">
+            <a href="/" class="text-decoration-none text-white fs-4 fw-bold" >FamilyFit</a>
+            <div>
+                <button class="navbar-toggler text-white" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="currentColor" class="bi bi-door-open-fill" viewBox="0 0 16 16">
+                        <path d="M1.5 15a.5.5 0 0 0 0 1h13a.5.5 0 0 0 0-1H13V2.5A1.5 1.5 0 0 0 11.5 1H11V.5a.5.5 0 0 0-.57-.495l-7 1A.5.5 0 0 0 3 1.5V15H1.5zM11 2h.5a.5.5 0 0 1 .5.5V15h-1V2zm-2.5 8c-.276 0-.5-.448-.5-1s.224-1 .5-1 .5.448.5 1-.224 1-.5 1z"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </header>
+    <!-- Header End-->
+
+    <!-- Collapse Navigation -->
+    <nav class="collapse navbar-collapse dropdown-nav" id="navbar">
+        <div class="container-fluid">
+        <button class="navbar-toggler dropdown-nav__closeNavBtn" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+            <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="currentColor" class="bi bi-door-closed-fill" viewBox="0 0 16 16">
+                <path d="M12 1a1 1 0 0 1 1 1v13h1.5a.5.5 0 0 1 0 1h-13a.5.5 0 0 1 0-1H3V2a1 1 0 0 1 1-1h8zm-2 9a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/>
+            </svg>
+        </button>
+        <!-- Sign In Form -->
+       <div class="container">
+           <div class="forms-container">
+               <div class="signin-signup">
+                   <form action="#" class="sign-in-form">
+                        <h2 class="title">Sign in</h2>
+                        <div class="input-field">
+                            <i class="bi bi-person-fill"></i>
+                            <input id="email-login" type="text"placeholder="Email" />
+                        </div>
+                        <div class="input-field">
+                            <i class="bi bi-lock-fill"></i>
+                            <input id="passwordd-login" type="password" placeholder="Password" />
+                        </div>
+                        <div class="input-group mb-3 form__btn">
+                            <button id="login-form" type="submit" class="btn btn-primary form__b">Login</button> 
+                        </div>
+                   </form>
+                   <!-- Sign Up Form -->
+                   <form action="#" class="sign-up-form">
+                        <h2 class="title">Sign up</h2>
+                        <div class="input-field">
+                            <i class="bi bi-person-heart"></i>
+                            <input id="firstname-signup" type="text"placeholder="First Name" />
+                        </div>
+                        <div class="input-field">
+                            <i class="bi bi-person-hearts"></i>
+                            <input id="lastname-signup" type="text"placeholder="Last Name" />
+                        </div>
+                        <div class="input-field">
+                            <i class="bi bi-envelope-heart-fill"></i>
+                            <input id="email-signup" type="text"placeholder="Email" />
+                        </div>
+                        <div class="input-field">
+                            <i class="bi bi-lock-fill"></i>
+                            <input id="passwordd-signup" type="password" placeholder="Password" />
+                        </div>
+                        <div class="input-field">
+                            <i class="bi bi-person-bounding-box"></i>
+                            <input id="familyId-signup" type="text" placeholder="Family Id" />
+                        </div>
+                        <div class="input-group mb-3 form__btn">
+                            <button id="signup-form" type="submit" class="btn btn-primary form__b">Sign Up</button> 
+                        </div>
+                    </form>
+               </div>
+           </div>
+           <div class="panels-container">
+               <div class="panel left-panel">
+                   <div class="content">
+                       <h3>New Here?</h3>
+                       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius ea soluta aperiam doloribus dolorem, adipisci cum dignissimos voluptatibus nobis eum nesciunt suscipit ullam in molestiae voluptas totam necessitatibus nisi atque.</p>
+                       <button type="submit" class="btn btn-primary btn transparent" id="sign-up-btn">Sign up</button>
+                   </div>
+                   <img src="img/FitnessTracker.svg" class="image" alt="Fitness Tracker">
+               </div>
+               <div class="panel right-panel">
+                <div class="content">
+                    <h3>Welcome Back</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius ea soluta aperiam doloribus dolorem, adipisci cum dignissimos voluptatibus nobis eum nesciunt suscipit ullam in molestiae voluptas totam necessitatibus nisi atque.</p>
+                    <button type="submit" class="btn btn-primary btn transparent" id="sign-in-btn">Sign in</button>
+                </div>
+                <img src="img/Workout.svg" class="image" alt="Fitness Tracker">
+            </div>
+           </div>
+       </div>
+    </nav>
+
+   <!-- Hero Section Start -->
+   <section class="hero">
+        <div class="hero__overlay"></div>
+        <video playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop" Loading="lazy" class="hero__video">
+            <source src="img/pexels-pavel-danilyuk-6326953.mp4" type="video/mp4">   
+        </video>
+        <div class="hero__content h-100 container-custom position-relative">
+            <div class="d-flex h-100 align-items-center hero__content-width">
+                <div class="text-white">
+                    <h1 class="hero__heading fw-bold mb-2">The only bad workout is no workout.</h1>
+                    <p class="lead mb-4"></p>
+                </div>
+            </div>                              
+        </div>
+        <a href="#scroll-down" class="hero__scroll-btn">
+            Take a Look <i class="bi bi-arrow-down-short"></i>
+        </a>
+   </section>
+   <!-- Hero Section End -->
+
+   <a id="scroll-down"></a>
+   <!-- Section One Start -->
+   <section class="features container-custom">
+       <div class="row">
+           <div class="col d-md-flex justify-content-md-center">
+               <img src="img/Family Exercising.png" alt="Family Exercising" class="img-fluid pb-4 features__section-thumbnail" width="500" height="500" Loading="lazy">
+           </div>
+           <div class="col-12 col-sm-6 align-self-center justify-content-md-center">
+               <div class="features__content-width">
+                   <span>01</span>
+                   <h1 class="h2 mb-4">Family Workout</h1>
+                   <p class="mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima soluta voluptatum, dolore ea perspiciatis illum temporibus! Impedit nam explicabo sit quasi dicta iusto temporibus enim deserunt, porro omnis ex magnam!</p>
+               </div>
+            </div>
+       </div>
+   </section>
+   <!-- Section One End -->
+
+   <!-- Section Two Start -->
+    <section class="features features--background">
+        <div class="container-custom">  
+            <div class="row">
+                <div class="col-12 col-sm-6 d-md-flex justify-content-md-center order-sm-1">
+                    <img src="img/Fitness App_Outline.png" alt="Fitness App Outline" class="img-fluid pb-4 features__section-thumbnail" width="500" height="500" Loading="lazy">
+                </div>
+                <div class="col-12 col-sm-6 align-self-center justify-content-md-center">
+                    <div class="features__content-width">
+                        <span>02</span>
+                        <h1 class="h2 mb-4">Tracking</h1>
+                        <p class="mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima soluta voluptatum, dolore ea perspiciatis illum temporibus! Impedit nam explicabo sit quasi dicta iusto temporibus enim deserunt, porro omnis ex magnam!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Section Two End -->
+
+    <!-- Section Three Start -->
+   <section class="features container-custom">
+       <div class="row">
+           <div class="col-12 col-sm-6 d-md-flex justify-content-md-center">
+               <img src="img/AR track_Two Color.png" alt="Ar Tracking" class="img-fluid pb-4 features__section-thumbnail" width="500" height="500" Loading="lazy">
+           </div>
+
+           <div class="col-12 col-sm-6 align-self-center justify-content-md-center">
+               <div class="features__content-width">
+                   <span>03</span>
+                   <h1 class="h2 mb-4">Analyzing</h1>
+                   <p class="mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima soluta voluptatum, dolore ea perspiciatis illum temporibus! Impedit nam explicabo sit quasi dicta iusto temporibus enim deserunt, porro omnis ex magnam!</p>
+               </div>
+            </div>
+       </div>
+   </section>
+   <!-- Section Three End -->
+
+   <!-- About Designers Section Start -->
+   <section class="bg-dark text-white py-4">
+    <div class="container-custom my-4">
+        <div class="row">
+            <div class="col-12 col-sm-4 mb-4">
+                <img src="img/pexels-andrew-personal-training-697509.jpg" class="mb-4 img-fluid" alt="Andrew Personal Training" width="200" height="248" Loading="lazy">
+                <h3>Andrew Rooks</h3>
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Blanditiis labore quo adipisci nulla odio, distinctio inventore consequuntur deleniti fugiat ullam cupiditate tempora, at beatae, ad illum quas nihil alias corporis.</p>
+            </div>
+            <div class="col-12 col-sm-4 mb-4">
+                <img src="img/pexels-godisable-jacob-718978.jpg" class="mb-4 img-fluid" alt="Lena Thorn" width="200" height="248" Loading="lazy">
+                <h3>Lena Thorn</h3>
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Blanditiis labore quo adipisci nulla odio, distinctio inventore consequuntur deleniti fugiat ullam cupiditate tempora, at beatae, ad illum quas nihil alias corporis.</p>
+            </div>
+            <div class="col-12 col-sm-4 mb-4">
+                <img src="img/pexels-linkedin-sales-navigator-2182970.jpg" class="mb-4 img-fluid" alt="Dan Abs" width="200" height="248" Loading="lazy">
+                <h3>Dan Abs</h3>
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Blanditiis labore quo adipisci nulla odio, distinctio inventore consequuntur deleniti fugiat ullam cupiditate tempora, at beatae, ad illum quas nihil alias corporis.</p>
+            </div>
+            <div class="col-12 col-sm-4 mb-4">
+                <img src="img/pexels-pixabay-532220.jpg" class="mb-4 img-fluid" alt="Josh Karr" width="200" height="248" Loading="lazy">
+                <h3>Josh Karr</h3>
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Blanditiis labore quo adipisci nulla odio, distinctio inventore consequuntur deleniti fugiat ullam cupiditate tempora, at beatae, ad illum quas nihil alias corporis.</p>
+            </div>
+            <div class="col-12 col-sm-4 mb-4">
+                <img src="img/pexels-vinicius-wiesehofer-1130626.jpg" class="mb-4 img-fluid" alt="Lisa Straut" width="200" height="248" Loading="lazy">
+                <h3>Lisa Straut</h3>
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Blanditiis labore quo adipisci nulla odio, distinctio inventore consequuntur deleniti fugiat ullam cupiditate tempora, at beatae, ad illum quas nihil alias corporis.</p>
+            </div>
+        </div>
+    </div>
+   </section>
+   <!-- About Designers Section End -->
+
+   <!-- Footer Start -->
+   <footer class="footer bg-white text-dark">
+       <div class="container-custom d-flex justify-content-between align-items-center py-3 border-highlight">
+           <div class="col-md-4 d-flex align-items-center">
+               <a href="/" class="me-2 text-muted text-decoration-none">
+                    <i class="bi bi-activity"></i>
+                   <span>&copy; 2022 Family Fit</span>
+               </a>
+           </div>
+           <ul class="nav col-md-4 justify-content-end list-unstyled d-flex text-white">
+               <li class="ms-3"><a class="text-muted" href="#"><i class="bi bi-github"></i></a></li>
+               <li class="ms-3"><a class="text-muted" href="#"><i class="bi bi-linkedin"></i></a></li>
+               <li class="ms-3"><a class="text-muted" href="#"><i class="bi bi-twitter"></i></a></li>
+               <li class="ms-3"><a class="text-muted" href="#"><i class="bi bi-facebook"></i></a></li>
+           </ul>
+       </div>
+
+   </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <!-- App.js -->
+    <script src="javascript/app.js"></script>
+    <script src="javascript/login.js"></script>
+</body>
