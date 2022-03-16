@@ -148,6 +148,33 @@ Calendar contains a heading and a jQuery script.
 
     </div>
   </div>
+   <!--Position form in middle of screen-->
+   <section>
+
+    <form>
+      <!--Input minutes here-->
+      <div class="form-group row col-sm-6 offset-sm-3 align-items-center">
+        <label for="minutesFormInput">Enter # of minutes working out:  </label>
+        <input id="minutes" type="number" name="minutes" step="1" min="0" max="500" required>
+        <span class="validity"></span>
+      </div>
+      <div>
+        <input type="submit">
+      </div>
+      <!--Choose exercise-->
+      <div class="form-group row col-sm-6 offset-sm-3">
+        <label for="exerciseFormControlSelect" class="col-sm-4 offset-sm-3 text-center">Choose your exercise:</label>
+        <select class="form-control" id="exerciseFormControlSelect">
+          <option>Jogging</option>
+          <option>Cycling</option>
+          <option>Elliptical</option>
+          <option>Swimming</option>
+        </select>
+      </div>
+      <button class="btn btn-primary row col-sm-6 offset-sm-3" type="submit">Submit</button>
+    </form>
+  
+  </section>
 
   </script>
   <!--jQuery first, then Calendar, then add Bootstrap JS-->

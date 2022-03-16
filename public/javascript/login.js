@@ -1,18 +1,18 @@
 async function signupFormHandler(event) {
   event.preventDefault();
 
-  const firstName = document.querySelector('#firstname-signup').value.trim();
-  const lastName = document.querySelector('#lastname-signup').value.trim();
+  const first_name = document.querySelector('#firstname-signup').value.trim();
+  const last_name = document.querySelector('#lastname-signup').value.trim();
   const email = document.querySelector('#email-signup').value.trim();
   const password = document.querySelector('#passwordd-signup').value.trim();
-  const family = document.querySelector('#familyId-signup').value.trim();
+  const family = parseInt(document.querySelector('#familyId-signup').value.trim());
 
-  if (firstName && lastName && email && password) {
+  if (first_name && last_name && email && password) {
     const response = await fetch('/api/members', {
       method: 'post',
       body: JSON.stringify({
-        firstName,
-        lastName,
+        first_name,
+        last_name,
         email,
         password,
         family,
@@ -20,6 +20,7 @@ async function signupFormHandler(event) {
       headers: { 'Content-Type': 'application/json' },
     });
     if (response.ok) {
+      document.location.replace('/dashboard')
       console.log('SUCCESS');
     } else {
       alert(response.statusText);
@@ -45,6 +46,7 @@ async function loginFormHandler(event) {
       headers: { 'Content-Type': 'application/json' },
     });
     if (response.ok) {
+      document.location.replace('/dashboard')
       console.log('Your are logged in');
     } else {
       alert('Incorrect Password');
@@ -53,8 +55,8 @@ async function loginFormHandler(event) {
 }
 
 document
-  .querySelector('.sign-in-form')
+  .querySelector('.sign-up-form')
   .addEventListener('submit', signupFormHandler);
 document
-  .querySelector('.sign-up-form')
+  .querySelector('.sign-in-form')
   .addEventListener('submit', loginFormHandler);
