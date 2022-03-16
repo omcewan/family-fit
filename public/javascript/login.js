@@ -5,7 +5,7 @@ async function signupFormHandler(event) {
   const lastName = document.querySelector('#lastname-signup').value.trim();
   const email = document.querySelector('#email-signup').value.trim();
   const password = document.querySelector('#passwordd-signup').value.trim();
-  const family = document.querySelector('@familyId-signup').value.trim();
+  const family = document.querySelector('#familyId-signup').value.trim();
 
   if (firstName && lastName && email && password) {
     const response = await fetch('/api/members', {
@@ -30,6 +30,8 @@ async function signupFormHandler(event) {
 async function loginFormHandler(event) {
   event.preventDefault();
 
+  console.log('orlando')
+
   const email = document.querySelector('#email-login').value.trim();
   const password = document.querySelector('#passwordd-login').value.trim();
 
@@ -50,5 +52,9 @@ async function loginFormHandler(event) {
   }
 }
 
-document.querySelector('id').addEventListener('submit', signupFormHandler);
-document.querySelector('id').addEventListener('submit', loginFormHandler);
+document
+  .querySelector('.sign-in-form')
+  .addEventListener('submit', signupFormHandler);
+document
+  .querySelector('.sign-up-form')
+  .addEventListener('submit', loginFormHandler);
