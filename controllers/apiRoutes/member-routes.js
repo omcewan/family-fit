@@ -1,11 +1,13 @@
 const router = require('express').Router();
 const { Member, Workout, LoggedWorkout } = require('../../models');
+const sequelize = require('../../config/connection')
 
 // get all members
 router.get('/', (req, res) => {
   Member.findAll({
     attributes: { exclude: ['password', 'family_id'] },
     include: {
+      order: sequelize.literal('createdAt DESC'),
       model: LoggedWorkout,
       separate: true,
       limit: 7,
@@ -26,6 +28,7 @@ router.get('/:id', (req, res) => {
   Member.findOne({
     attributes: { exclude: ['password'] },
     include: {
+      order: sequelize.literal('createdAt DESC'),
       model: LoggedWorkout,
       separate: true,
       limit: 7,

@@ -1,10 +1,12 @@
 const router = require('express').Router();
+const sequelize = require('../../config/connection');
 const { LoggedWorkout, Workout, Member, Family } = require('../../models');
 
 // get all logged workouts
 router.get('/', (req, res) => {
   LoggedWorkout.findAll({
-    limit: 20,
+    limit: 7,     
+    order: sequelize.literal('createdAt DESC'),
     include: [
       { model: Workout },
       {

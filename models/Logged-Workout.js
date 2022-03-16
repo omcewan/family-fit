@@ -22,11 +22,11 @@ LoggedWorkout.init(
         key: 'id',
       },
     },
-    hours: {
-      type: DataTypes.INTEGER,
-    },
+    // hours: {
+    //   type: DataTypes.INTEGER,
+    // },
     minutes: {
-      type: DataTypes.INTEGER(60),
+      type: DataTypes.INTEGER,
     },
   },
   {
