@@ -44,6 +44,8 @@ a:hover {
 /* Main Header */
 .header {
   z-index: 2;
+  font-style: italic;
+  opacity: 100%;
 }
 
 /* Collapse Navigation Bar */
