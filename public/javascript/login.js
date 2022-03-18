@@ -5,8 +5,9 @@ async function signupFormHandler(event) {
   const last_name = document.querySelector('#lastname-signup').value.trim();
   const email = document.querySelector('#email-signup').value.trim();
   const password = document.querySelector('#passwordd-signup').value.trim();
-  const family = parseInt(document.querySelector('#familyId-signup').value.trim());
+  const family = Number(document.querySelector('#familyId-signup').value.trim());
 
+  // TODO: fix it so that the number in family is recognized as a number
   if (first_name && last_name && email && password) {
     const response = await fetch('/api/members', {
       method: 'post',
@@ -30,9 +31,6 @@ async function signupFormHandler(event) {
 
 async function loginFormHandler(event) {
   event.preventDefault();
-
-  console.log('orlando')
-
   const email = document.querySelector('#email-login').value.trim();
   const password = document.querySelector('#passwordd-login').value.trim();
 
