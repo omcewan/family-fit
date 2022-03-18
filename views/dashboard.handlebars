@@ -137,7 +137,7 @@
     <!--Input minutes here-->
     <div class="form-group row col-sm-6 offset-sm-3 align-items-center">
       <label for="minutesFormInput">Enter # of minutes working out:  </label>
-      <input id="minutes" type="number" name="minutes" step="1" min="0" max="500" required>
+      <input style='margin-left: 10px;' id="minutes" type="number" name="minutes" step="1" min="0" max="500" required>
       <span class="validity"></span>
     </div>
     <div>
@@ -147,10 +147,11 @@
     <div class="form-group row col-sm-6 offset-sm-3">
       <label for="exerciseFormControlSelect" class="col-sm-4 offset-sm-3 text-center">Choose your exercise:</label>
       <select class="form-control" id="exerciseFormControlSelect">
-        <option>Jogging</option>
+        <option>Tredmill</option>
+        <option>Weight Lifting</option>
+        <option>Eliptical</option>
+        <option>Abs</option>
         <option>Cycling</option>
-        <option>Elliptical</option>
-        <option>Swimming</option>
       </select>
     </div>
     <button class="btn btn-primary row col-sm-6 offset-sm-3" type="submit">Submit</button>

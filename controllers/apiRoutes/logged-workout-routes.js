@@ -30,7 +30,6 @@ router.post('/', (req, res) => {
   LoggedWorkout.create({
     workout_id: req.body.workout_id,
     member_id: req.body.member_id,
-    hours: req.body.hours,
     minutes: req.body.minutes,
   })
     .then((workoutData) => {
