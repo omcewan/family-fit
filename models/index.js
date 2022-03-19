@@ -2,7 +2,7 @@
 const Family = require('./family');
 const Member = require('./member');
 const Workout = require('./workout');
-const LoggedWorkout = require('./logged-workout');
+const LoggedWorkout = require('./logged');
 
 Family.hasMany(Member, {
   foreignKey: 'family_id',
