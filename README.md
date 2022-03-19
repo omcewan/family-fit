@@ -53,7 +53,7 @@ For additional information about the project, please find it at the following ww
 Also if you have additional questions please contact me at omcewan18@gmail.com.
 
 ## Contributors
-Orlando McEwan: https://github.com/omcewan
-Shameka Taylor: https://github.com/M3K-N3W
-Walt Walker: https://github.com/WaltWalker
-Zachary Levin: https://github.com/zachary-levin
+* Orlando McEwan: https://github.com/omcewan
+* Shameka Taylor: https://github.com/M3K-N3W
+* Walt Walker: https://github.com/WaltWalker
+* Zachary Levin: https://github.com/zachary-levin

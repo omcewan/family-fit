@@ -4,9 +4,10 @@ const { Family, Member, LoggedWorkout, Workout} = require('../models')
 
 
 router.get('/', (req, res) => {
-  console.log(req.session)
+  // console.log(req.session)
   if (req.session.loggedIn) {
     res.redirect('/dashboard')
+    return;
   }
   res.render('homepage');
 });
@@ -15,6 +16,7 @@ router.get('/', (req, res) => {
 router.get('/dashboard', (req, res) => {
   if (!req.session.loggedIn) {
     res.redirect('/')
+    return;
   }
   res.render('dashboard')
 });
