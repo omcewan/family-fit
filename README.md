@@ -28,7 +28,7 @@ Family fit is an application developed to promote an active lifestyles for famil
 For all other packages used please view the dependencies listed in package.json.
 
 ## ScreenShot
-![This is a screenshot](public/img/logo.png)
+![This is a screenshot](public/img/family_fit.png)
 
 ## Installation
 To install Family Fit you will need to download the code base from the repository, https://github.com/omcewan/family-fit. You will need to have node.js installed on your system. Once you have node running from the command line within the root folder of Family Fit, run the command 'npm i' or 'npm install'. This will download all the dependencies that were used to develop Family Fit. 
