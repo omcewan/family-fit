@@ -7,7 +7,6 @@ async function myChartData() {
   if (response.ok) {
     const memberData = await response.json();
     const workout = await memberData['logged_workouts'];
-    console.log(workout);
     const workoutHours = await workout.map((element) => element.minutes);
     const labels = await workout.map((element) =>{
       return `${element.workout['workout_name']} (${element.createdAt.substring(0, 10)})`
