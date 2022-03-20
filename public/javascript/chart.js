@@ -1,6 +1,7 @@
 const ctx = document.getElementById('myChart');
 const ctx1 = document.getElementById('familyChart');
 let memberID = JSON.parse(localStorage.getItem('memberID'));
+
 async function myChartData() {
   const response = await fetch(`/api/members/${memberID[0]}`);
   if (response.ok) {
@@ -27,7 +28,7 @@ async function myChartData() {
     };
 
     const config = {
-      type: 'line',
+      type: 'bar',
       data: data,
       options: {},
     };
@@ -49,7 +50,6 @@ async function familyChart() {
           return pre + cur;
         }, 0);
     });
-    console.log(memberHours);
 
     const data = {
       labels: labels,
@@ -74,6 +74,50 @@ async function familyChart() {
     const myChart = new Chart(ctx1, config);
   }
 }
+
+async function logWorkout(event) {
+  event.preventDefault();
+
+  const minutes = document.querySelector('#minutes').value.trim();
+  const workout = document
+    .querySelector('#exerciseFormControlSelect')
+    .value.trim();
+  const member_id = memberID[0];
+  let workout_id;
+  switch (workout) {
+    case 'Tredmill':
+      workout_id = 1;
+      break;
+    case 'Weight Lifting':
+      workout_id = 2;
+      break;
+    case 'Eliptical':
+      workout_id = 3;
+      break;
+    case 'Abs':
+      workout_id = 4;
+      break;
+    case 'Cycling':
+      workout_id = 5;
+      break;
+  }
+
+  const response = await fetch('/api/loggedworkouts', {
+    method: 'post',
+    body: JSON.stringify({
+      workout_id,
+      member_id,
+      minutes,
+    }),
+    headers: { 'Content-Type': 'application/json' },
+  });
+
+  if (response.ok) {
+    window.location.reload();
+  }
+}
+
+document.querySelector('#logworkout').addEventListener('submit', logWorkout);
 
 myChartData();
 familyChart();

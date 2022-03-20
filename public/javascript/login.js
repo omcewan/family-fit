@@ -21,7 +21,6 @@ async function signupFormHandler(event) {
     });
 
     const memberData = await response.json();
-    console.log(memberData);
 
     if (response.ok) {
       localStorage.clear();
