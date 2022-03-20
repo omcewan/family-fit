@@ -1,8 +1,8 @@
 const ctx = document.getElementById('myChart');
 const ctx1 = document.getElementById('familyChart');
-
+let memberID = JSON.parse(localStorage.getItem('memberID'));
 async function myChartData() {
-  const response = await fetch('/api/members/1');
+  const response = await fetch(`/api/members/${memberID[0]}`);
   if (response.ok) {
     const memberData = await response.json();
     const workout = await memberData['logged_workouts'];
@@ -37,7 +37,7 @@ async function myChartData() {
 }
 
 async function familyChart() {
-  const response = await fetch('/api/families/1');
+  const response = await fetch(`/api/families/${memberID[1]}`);
   if (response.ok) {
     const familyData = await response.json();
     const members = await familyData['members'];
