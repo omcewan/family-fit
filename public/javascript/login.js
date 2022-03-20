@@ -19,11 +19,20 @@ async function signupFormHandler(event) {
       }),
       headers: { 'Content-Type': 'application/json' },
     });
+
+    const memberData = await response.json();
+
     if (response.ok) {
+      localStorage.clear();
+      localStorage.setItem(
+        'memberID',
+        JSON.stringify([`${memberData.id}`, `${memberData.family_id}`])
+      );
       document.location.replace('/dashboard');
-      console.log('SUCCESS');
     } else {
-      alert(response.statusText);
+      alert(
+        'Please make sure to fill the form out complete and if you wish to add a Family please choose a number from 1 - 5!'
+      );
     }
   }
 }
@@ -42,11 +51,24 @@ async function loginFormHandler(event) {
       }),
       headers: { 'Content-Type': 'application/json' },
     });
+
+    const memberData = await response.json();
+
     if (response.ok) {
-      document.location.replace('/dashboard');
+      localStorage.clear();
+      localStorage.setItem(
+        'memberID',
+        JSON.stringify([
+          `${memberData.member.id}`,
+          `${memberData.member.family_id}`,
+        ])
+      );
+      document.location.replace(`/dashboard`);
       console.log('Your are logged in');
     } else {
-      alert('Incorrect Password');
+      alert(
+        'Please make sure the email and password are correct! Otherwise please use the sign up option!'
+      );
     }
   }
 }
