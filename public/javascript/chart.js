@@ -7,17 +7,17 @@ async function myChartData() {
   if (response.ok) {
     const memberData = await response.json();
     const workout = await memberData['logged_workouts'];
-    // console.log(workout);
+    console.log(workout);
     const workoutHours = await workout.map((element) => element.minutes);
-    const labels = await workout.map((element) =>
-      element.createdAt.substring(0, 10)
-    );
+    const labels = await workout.map((element) =>{
+      return `${element.workout['workout_name']} (${element.createdAt.substring(0, 10)})`
+    });
 
     const data = {
       labels: labels,
       datasets: [
         {
-          label: 'Minuetes Logged',
+          label: 'Your Workout Minutes',
           // fill: true,
           borderDash: [5, 5],
           backgroundColor: 'rgb(255, 99, 132)',
@@ -55,7 +55,7 @@ async function familyChart() {
       labels: labels,
       datasets: [
         {
-          label: 'Minuetes Logged',
+          label: 'Family Members Total Workout Minutes',
           // fill: true,
           // borderDash: [5, 5],
           backgroundColor: 'rgb(20, 0, 100)',
