@@ -45,7 +45,9 @@ async function familyChart() {
     const memberHours = await members.map((element) => {
       return element.logged_workouts
         .map((element) => element.minutes)
-        .reduce((pre, cur) => pre + cur);
+        .reduce((pre, cur) => {
+          return pre + cur;
+        }, 0);
     });
     console.log(memberHours);
 

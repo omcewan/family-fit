@@ -1,8 +1,8 @@
 // inmport modules
-const Family = require('./Family');
-const Member = require('./Member');
-const Workout = require('./Workout');
-const LoggedWorkout = require('./Logged-Workout');
+const Family = require('./family');
+const Member = require('./member');
+const Workout = require('./workout');
+const LoggedWorkout = require('./logged');
 
 Family.hasMany(Member, {
   foreignKey: 'family_id',

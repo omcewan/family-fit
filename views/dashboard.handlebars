@@ -86,11 +86,11 @@
           </a>
         </li>
         <li>
-          <a href="#charts" class="nav-link link-dark">
+          <a href="/" class="nav-link link-dark" id="logout">
             <svg class="bi me-2" width="16" height="16">
               <use xlink:href="#grid" />
             </svg>
-            Charts
+            Logout
           </a>
         </li>
       </ul>
@@ -130,8 +130,35 @@
 
     </div>
   </div>
+   <!--Position form in middle of screen-->
+  <section style="margin-top: 100px;">
 
-  </script>
+  <form>
+    <!--Input minutes here-->
+    <div class="form-group row col-sm-6 offset-sm-3 align-items-center">
+      <label for="minutesFormInput">Enter # of minutes working out:  </label>
+      <input style='margin-left: 10px;' id="minutes" type="number" name="minutes" step="1" min="0" max="500" required>
+      <span class="validity"></span>
+    </div>
+    <div>
+      <input type="submit">
+    </div>
+    <!--Choose exercise-->
+    <div class="form-group row col-sm-6 offset-sm-3">
+      <label for="exerciseFormControlSelect" class="col-sm-4 offset-sm-3 text-center">Choose your exercise:</label>
+      <select class="form-control" id="exerciseFormControlSelect">
+        <option>Tredmill</option>
+        <option>Weight Lifting</option>
+        <option>Eliptical</option>
+        <option>Abs</option>
+        <option>Cycling</option>
+      </select>
+    </div>
+    <button class="btn btn-primary row col-sm-6 offset-sm-3" type="submit">Submit</button>
+  </form>
+
+</section>
+
   <!--jQuery first, then Calendar, then add Bootstrap JS-->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   {{!-- <script src="js/evo-calendar.js"></script> --}}
@@ -139,6 +166,7 @@
     integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
     crossorigin="anonymous"></script>
   <script src="javascript/sidebars.js"></script>
+  <script src="javascript/logout.js"></script>
   <script src="javascript/chart.js"></script>
 
 </body>
